@@ -100,7 +100,6 @@ function leaveRoom(ws,room) {
 
 function broadcastMessage (room,message) {
 	clients.forEach((clientData, client) => {
-		console.log("clientData.rooms",clientData.rooms);
         if (client.readyState === WebSocket.OPEN && clientData.rooms.has(room)) {
             client.send(JSON.stringify(message));
         }
